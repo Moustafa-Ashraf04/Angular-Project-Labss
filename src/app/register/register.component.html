@@ -1,0 +1,156 @@
+<section
+  class="vh-100 bg-image"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');
+  "
+>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form [formGroup]="register" (ngSubmit)="submitForm()">
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="fullName">Full Name</label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    class="form-control form-control-lg"
+                    formControlName="name"
+                  />
+                  @if(register.controls['name'].invalid &&
+                  register.controls['name'].touched){
+                  <div id="name" class="form-text text-danger">
+                    @if(register.controls['name'].errors?.['required']){
+                    <span>This field is required</span>
+                    } @if(register.controls['name'].errors?.['minlength']){
+                    <span>Min Length is 4</span>
+                    }
+                  </div>
+                  }
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="email">Your Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-control form-control-lg"
+                    formControlName="email"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                  />
+                  @if(register.controls['email'].invalid &&
+                  register.controls['email'].touched){
+                  <div id="email" class="form-text text-danger">
+                    @if(register.controls['email'].errors?.['required']){
+                    <span>This field is required</span>
+                    } @if(register.controls['email'].errors?.['pattern']){
+                    <span>incorrect email format</span>
+                    }
+                  </div>
+                  }
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="userName">User Name</label>
+                  <input
+                    type="text"
+                    id="userName"
+                    class="form-control form-control-lg"
+                    formControlName="userName"
+                  />
+                  @if(register.controls['userName'].invalid &&
+                  register.controls['userName'].touched){
+                  <div id="userName" class="form-text text-danger">
+                    @if(register.controls['userName'].errors?.['required']){
+                    <span>This field is required</span>
+                    } @if(register.controls['userName'].errors?.['minlength']){
+                    <span>Min Length is 4</span>
+                    }
+                  </div>
+                  }
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    class="form-control form-control-lg"
+                    formControlName="password"
+                  />
+                  @if(register.controls['password'].invalid &&
+                  register.controls['password'].touched){
+                  <div id="password" class="form-text text-danger">
+                    @if(register.controls['password'].errors?.['required']){
+                    <span>This field is required</span>
+                    } @if(register.controls['password'].errors?.['minlength']){
+                    <span>format is incorrect</span>
+                    }
+                  </div>
+                  }
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="confirmpassword"
+                    >Confirm password</label
+                  >
+                  <input
+                    type="password"
+                    id="confirmpassword"
+                    class="form-control form-control-lg"
+                    formControlName="confirmPassword"
+                  />
+                  @if(register.controls['confirmPassword'].invalid &&
+                  register.controls['confirmPassword'].touched){
+                  <div id="confirmPassword" class="form-text text-danger">
+                    @if(register.controls['confirmPassword'].errors?.['required']){
+                    <span>This field is required</span>
+                    }
+                    @if(register.controls['confirmPassword'].errors?.['minlength']){
+                    <span>format is incorrect</span>
+                    }
+                  </div>
+                  }
+                </div>
+
+                <div class="form-check d-flex justify-content-center mb-3">
+                  <input
+                    class="form-check-input me-2"
+                    type="checkbox"
+                    value=""
+                    id="form2Example3cg"
+                  />
+                  <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in
+                    <a href="#!" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button
+                    type="submit"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                    [disabled]="register.invalid"
+                  >
+                    Register
+                  </button>
+                </div>
+
+                <p class="text-center text-muted mt-3 mb-0">
+                  Have already an account?
+                  <a href="/login" class="fw-bold text-body"
+                    ><u>Login here</u></a
+                  >
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

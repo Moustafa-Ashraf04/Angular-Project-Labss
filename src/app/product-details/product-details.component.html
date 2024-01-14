@@ -1,0 +1,63 @@
+<!-- product-details.component.html -->
+<div
+  class="container mt-5"
+  style="height: 75vh; border: 2px solid black; border-radius: 13px"
+>
+  <div class="row">
+    <!-- Left half for product image -->
+    <div
+      class="col-md-6 d-flex justify-content-center align-items-center"
+      style="height: 75vh"
+    >
+      <img
+        src="{{ product.thumbnail }}"
+        alt="{{ product.title }}"
+        class="img-fluid p-5"
+      />
+    </div>
+
+    <!-- Right half for product details -->
+    <div class="col-md-6 d-flex justify-content-center flex-column">
+      <h2>{{ product.title }}</h2>
+      <p>{{ product.description }}</p>
+      <p class="text-warning">Rating: {{ product.rating }}</p>
+      <p class="text fs-2 fw-bold">{{ "$" + product.price }}</p>
+      <hr />
+      <p
+        class="p-2 px-4 rounded- text-white text-center"
+        [ngStyle]="{ 'background-color': stockColor }"
+        style="border-radius: 20px; width: 150px"
+      >
+        {{ stockText }}
+      </p>
+      <p>Stock: {{ product.stock + " items left" }}</p>
+
+      <div class="d-flex flex-row justify-content-start gap-5">
+        <p>Brand: {{ product.brand }}</p>
+        <p>Category: {{ product.category }}</p>
+      </div>
+      <hr />
+      <div class="d-flex justify-content-around">
+        <!-- <button
+          class="btn text-white fw-bold"
+          style="width: 220px; background-color: #003d28"
+        >
+          Buy Now
+        </button> -->
+        <button
+          class="btn btn-primary fw-bold text-white btn-add-to-cart"
+          style="
+            width: 250px;
+            height: 50px;
+            background-color: #003d28;
+            border-radius: 15px;
+          "
+          (click)="addToCart(product)"
+        >
+          Add to Cart
+        </button>
+      </div>
+      <hr />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<h5>Welcome to our shopping website , start browsing...</h5>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center">
+  <app-product-card
+    style="flex: 0 0 calc(33% - 10px); margin: 5px; width: 100%"
+    class="col-md-4 d-flex justify-content-center"
+    *ngFor="let product of products"
+    [product]="product"
+  ></app-product-card>
+</div>

@@ -1,0 +1,50 @@
+<div class="card" style="width: 18rem; position: relative; width: 85%">
+  <img
+    src="{{ product.thumbnail }}"
+    class="card-img-top"
+    alt="product-image"
+    style="height: 200px"
+  />
+  <p
+    class="p-2 px-4 rounded- text-white"
+    [ngStyle]="{ 'background-color': stockColor }"
+    style="position: absolute; top: 5px; left: 10px; border-radius: 20px"
+  >
+    {{ stockText }}
+  </p>
+  <div class="card-body">
+    <div class="card-title fw-bold d-flex justify-content-between">
+      <p style="margin-bottom: 0">{{ product.title }}</p>
+      <p style="margin-bottom: 0">{{ "$" + product.price }}</p>
+    </div>
+    <p class="card-text text-success">
+      {{ "Rate: " + product.rating }}
+    </p>
+    <p class="card-text">
+      {{ product.description }}
+    </p>
+    <p class="card-text" [ngStyle]="{ color: stockColor }">{{ stockText }}</p>
+    <div class="d-flex justify-content-between">
+      <button
+        type="button"
+        class="btn btn-light rounded- px-3 text-white"
+        style="
+          border: 2px solid black;
+          border-radius: 20px;
+          background-color: #003d28;
+        "
+        (click)="addToCart()"
+      >
+        Add to cart
+      </button>
+      <button
+        type="button"
+        class="btn btn-light rounded- px-4"
+        style="border: 2px solid black; border-radius: 20px"
+        (click)="navigateToProductDetails()"
+      >
+        Details
+      </button>
+    </div>
+  </div>
+</div>
